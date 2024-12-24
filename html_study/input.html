@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <th><label for="10">사용자 이름</label></th>
+                <td><input type="text" id="10" autofocus="ture"></td>
+            </tr>
+            <tr>
+                <th><label for="20">비밀번호</label></th>
+                <td><input type="password" id="20"></td>
+            </tr>
+            <tr>
+                <th><label for="25">성명</label></th>
+                <td><input type="text" id="25" value="백진우" disabled="true"></td>
+            </tr>
+            <tr>
+                <th><label for="30">취미</label></th>
+                <td>
+                    <input type="checkbox" id="30" disabled="true">
+                    <label for="30">축구</label>
+                    <input type="checkbox" id="40">
+                    <label for="40">농구</label>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="50">성별</label></th>
+                <td>
+                    <input type="radio" id="50" name="gender" checked="true">
+                    <label for="50">남성</label>
+                    <input type="radio" id="60" name="gender">
+                    <label for="60">여성</label>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="70">점수</label></th>
+                <td><input type="number" id="70" min="0" max="100"></td>
+            </tr>
+            <tr>
+                <th><label for="80">등급</label></th>
+                <td><input type="range" id="80" min="1" max="10"></td>
+            </tr>
+            <tr>
+                <th><label for="90">프로필사진</label></th>
+                <td><input type="file" id="90"></td>
+            </tr>
+            <tr>
+                <th><label for="95">생년월일</label></th>
+                <td>
+                    <select id="95">
+                        <option value="0">년</option>
+                        <option value="0">2024</option>
+                        <option value="0">2014</option>
+                        <option value="0">2004</option>
+                        <option value="0">1994</option>
+                    </select>
+                    <select id="96">
+                        <option value="0">월</option>
+                        <option value="0">1</option>
+                        <option value="0">2</option>
+                        <option value="0">3</option>
+                        <option value="0">4</option>
+                    </select>
+                    <select id="97">
+                        <option value="0">일</option>
+                        <option value="0">15</option>
+                        <option value="0">16</option>
+                        <option value="0">17</option>
+                        <option value="0">18</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="100">자기소개</label></th>
+                <td><textarea id="100" placeholder="드래그하여 창 크기 조절 가능"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button>가입하기</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
