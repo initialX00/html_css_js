@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body > div {
+            position: relative;
+            margin: 200px auto;
+            border: 1px solid #222;
+            width: 500px;
+            height: 400px;
+        }
+
+        div > div {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            /* 박스의 x,y축을 이동시켜서 가운데로 위치시킴 */
+            width: 300px;
+            height: 100px;
+            background-color: red;
+
+            transition: all 0.5s ease-in-out; /*변하는범위  변하는시간  변하는속도 */
+
+            &:hover {
+                border-radius: 50%;
+                width: 100px;
+            }
+        }
+
+        div > input {
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top:50%;
+            left:50%;
+            width: 200px;
+            height: 30px;
+            transition: width 1s ease;
+
+            &:focus {
+                width: 400px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <input type="text">
+    </div>
+</body>
+</html>

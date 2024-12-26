@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex; /*플렉스는 기본적으로 자동으로 크기가 축소됨*/
+            flex-wrap: wrap; /*자동으로 줄넘김, 크기 축소 안됨*/
+            justify-content: space-between; /*주축 정렬*/
+            align-items: flex-start; /*교차축 정렬*/
+            margin: 200px auto;
+            border: 1px solid #222222;
+            width: 500px;
+            height: 200px;
+        }
+        .container > .box {
+            box-sizing: border-box;
+            border:1px solid #222;
+            width: 80px;
+            height: 40px;
+            background-color: green;
+
+            &:nth-of-type(8) {
+                align-self: center;
+                /*self는 자식요소에만, 특정 요소만 지정할 때 사용한다*/
+            }
+            
+            &:nth-of-type(7) {
+                order: 1; /*default가 0번이라서 1번이 뒤로 밀려난다*/
+                align-self: flex-end;
+            }
+        }
+
+        .container2 {
+            display: flex;
+            flex-wrap: wrap; /*줄넘김*/
+            flex-direction: column-reverse; /*주축 방향결정*/
+            justify-content: flex-end; /*주축 정렬*/
+            align-items: center; /*교차축 정렬*/
+            align-content: space-between; /*wrap 정렬*/
+            margin: 200px auto;
+            border: 1px solid #222222;
+            width: 500px;
+            height: 200px;
+        }
+        .container2 > .box {
+            box-sizing: border-box;
+            border:1px solid #222;
+            width: 100px;
+            height: 50px;
+            background-color: green;
+
+            &:nth-of-type(7) {
+                order: -1; /*order는 음수도 가능하다*/
+            }
+        }
+        
+
+
+
+        .container3 {
+            display: flex;
+            margin: 0 auto;
+            border: 1px solid #222222;
+            width: 500px;
+            height: 300px;
+        }
+
+        .box2 {
+            width: 132px;
+            height: 100%;
+            background-color: red;
+        }
+
+        .box3 {
+            flex-grow: 2;
+            background-color: yellow;
+        }
+
+        .box4 {
+            flex-grow: 1;
+            height: 100%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+    </div>
+    <div class="container2">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+    </div>
+
+
+    <div class="container3">
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+</body>
+</html>

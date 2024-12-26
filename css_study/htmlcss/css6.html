@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 자식요소 모두를 선택하기에 자식이 둘이라서 테두리가 2개 생긴다 */
+        .box1 div {
+            border: 10px solid #222222;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            & > div > div {
+                width: 50px;
+                height: 50px;
+                background-color: white;
+            }
+        }
+
+        .box2 > div > div {
+            border: 10px solid #222222;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .box2 + div > div > div {
+            border: 10px solid #222222;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+
+
+        .checkbox-group { 
+            box-sizing: border-box;
+            border: 1px solid #222222;
+            padding: 20px;
+
+            & input[type="checkbox"] {
+                display: none;
+            }
+
+            & input[type="checkbox"] + label {
+                display: inline-block;
+                box-sizing: border-box;
+                border: 1px solid #222222;
+                background-clip:content-box;
+                padding: 5px;
+                width:35px;
+                height:35px;
+            }
+
+            & input[type="checkbox"]:checked + label {
+                background-color: red;
+            }
+
+        }
+
+        input[type="text"] {
+            outline: none;
+            box-sizing: border-box;
+            margin: 20px 0px;
+            border: 2px solid #222;
+            padding: 0px 20px;
+            width: 400px;
+            height: 50px;
+        }
+        
+        input[type="text"]:focus {
+            background-color: #eee;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div>
+            <div></div>
+        </div>
+    </div>
+    <div class="box2">
+        <div>
+            <div></div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="ch1">
+        <label for="ch1"></label>
+        <label for="ch1">Java</label>
+        <!-- 인접형제선택자로 사용했기때문에 글자는 포함 안됨 -->
+
+        <input type="checkbox" id="ch2">
+        <label for="ch2"></label>
+        <label for="ch2">Python</label>
+
+        <input type="checkbox" id="ch3">
+        <label for="ch3"></label>
+        <label for="ch3">HTML</label>
+    </div>
+    <input type="text">
+</body>
+</html>

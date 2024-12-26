@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 전체선택자 *로 모든 *를 선택했지만 not으로 p는 제외했다 */
+        div *:not(p),
+        div *:not(p:nth-of-type(2)), /* not으로 특정 순서의 p는 제외했다 */
+        div *:not(p:nth-last-of-type(2)) {
+            background-color: red;
+        }
+
+        div > h1:nth-of-type(2n-1) {
+            background-color: brown;
+        }
+
+        div > p:nth-of-type(2) {
+            background-color: green;
+        }
+        div > p:nth-last-of-type(2) {
+            background-color: yellow;
+        }
+
+        div > div > .or {
+            background-color: white;
+            &::before,
+            &::after {
+                content: "";
+                display: inline-block;
+                margin: 0px 5px;
+                border-top: 1px solid #222;
+                width: 100px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>텍스트1</h1>
+        <h1>텍스트2</h1>
+        <h1>텍스트3</h1>
+        <h1>텍스트4</h1>
+        <h1>텍스트5</h1>
+        <p>텍스트11</p>
+        <p>텍스트22</p>
+        <p>텍스트33</p>
+        <p>텍스트44</p>
+        <p>텍스트55</p>
+        <input type="text">
+        <div>
+            <span class="or">또는</span>
+        </div>
+    </div>
+</body>
+</html>
