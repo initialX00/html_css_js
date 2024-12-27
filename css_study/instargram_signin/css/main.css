@@ -1,0 +1,227 @@
+
+html, body { /*최상위 부모*/
+    height: 100%;
+}
+
+.whole { /*부모의 높이가 있어야 %가 먹는다*/
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+.whole-main { 
+    margin-bottom: 44px;
+    flex-grow: 1; /*남은 공간 전부 차지*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 12px 0 10px;
+    padding: 10px 0;
+    border: 1px solid rgb(219, 219, 219);
+    width: 350px;
+}
+
+i {
+    margin: 36px 0px 12px;
+}
+
+.main-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+}
+
+/*input 입력 시 label 크기 변하는거 아직 안함*/
+.input-box {
+    position: relative;
+    margin: 0 40px 6px;
+    border: 1px solid rgb(219, 219, 219);
+    width: 100%;
+    background-color: #f5f5f5;
+    
+    & > input {
+        padding: 9px 0 7px 8px;
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 12px;
+        background-color: #00000000;
+
+        &:not(:placeholder-shown) {
+            padding: 14px 0px 2px 8px;
+        }
+        &:not(:placeholder-shown) + label {
+            top: 9px;
+            font-size: 10px;
+        }
+    }
+
+    & > label {
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: #777;
+
+        transition: all 0.1s ease;
+    }
+}
+
+
+.login-button {
+    margin: 8px 40px;
+    width: 100%;
+
+    & > button {
+        border:none;
+        padding: 7px 16px;
+        border-radius: 8px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 600;
+        color: white;
+        background-color: #77A7FF;
+
+        &:hover {
+            background-color: #0095f6;
+        }
+        &:disabled {
+            background-color: #77A7FF;
+        }
+    }
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 14px 40px 22px;
+
+    width: 100%;
+
+    & .side-line {
+        background-color: #737373;
+        flex-grow: 1; /*남은 공간 적힌 비율로 나눠갖기*/
+        height: 1px;
+    }
+
+    & > p {
+        margin: 0 18px;
+        font-weight: 600;
+        font-size: 12px;
+        color: #737373;
+    }
+}
+
+
+
+.facebook {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 40px;
+    width: 100%;
+
+    & > svg {
+        margin-right: 4px;
+        padding: 0 4px;
+    }
+
+    & > svg path {
+        fill: #0095f6;
+    }
+
+    & > a {
+        color: #0095f6;
+        font-size: 14px;
+        font-weight: 600;
+
+        &:hover {
+            color: #00376b;
+        }
+    }
+
+    
+}
+
+
+
+
+
+.password-link {
+    margin-top: 12px;
+
+    & > a {
+        
+        font-size: 14px;
+        color: #00376b;
+    }
+
+}
+
+
+
+
+
+.sub-box1 {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border: 1px solid rgb(219, 219, 219);
+    width: 350px;
+
+    & > .subt1 {
+        margin: 15px;
+        font-size: 14px;
+    }
+
+    & > .subt1 > .subt2 {
+        font-size: 14px;
+        color: #0095f6;
+        font-weight: 600;
+    }
+
+}
+
+
+.sub-box2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+
+    & > p {
+        margin: 10px 20px;
+        font-size: 14px;
+    }
+    
+    & > .link-logo {
+        margin: 10px 0;
+        display: flex;
+
+        & > a > img {
+            height: 40px;
+        }
+
+        & > a:nth-of-type(1) { 
+            margin-right: 8px;
+        }
+    }
+}
+
+
+
