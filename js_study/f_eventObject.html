@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="text-input">
+    <input type="text" class="text-input2">
+    <button class="submit-button">확인</button>
+    <script>
+        let data = {
+            text1: "",
+            text2: "",
+        }
+
+        function handleInputOnChange() {
+            //console.log("첫번쨰 인풋 키입력");
+            const inputElement = document.querySelector(".text-input");
+            data = {
+                ...data,
+                text1: inputElement.value, //onkeydown이면 입력 전의 값이 대입됨.
+                                            //onkeyup이면 입력 후의 값이 대입됨.
+            }
+            //console.log(data);
+        }
+
+        function handleInputOnChange2(event) { //이벤트 객체는 항상 존재한다.
+            //console.log("두번쨰 인풋 키입력");
+            //console.log(event); 이벤트 객체 출력
+            data = {
+                ...data,
+                text2: event.target.value, //이벤트 객체를 참고하여 수식불러오기.
+                //또는 text2: this.value,
+            }
+            //console.log(data);
+        }
+
+        function handleSubmitOnClick(e) {
+            //console.log("버튼 클릭");
+            // console.log(e); //이벤트 객체 출력
+            // if(e.altKey && e.shiftKey) { //알트키와 쉬프트키를 눌렀을때만 출력
+            //     console.log(data);
+            // }
+            console.log(data)
+        }
+
+        function handleInputOnKeyDown(e) {
+            if(e.keyCode !== 13)  {
+                return; //부정문 리턴을 통해 후술될 쓸데없는 코드 차단하기.
+            }
+            //console.log("엔터");
+            const nextInput = document.querySelector(".text-input2"); //또는 "& + input"
+            nextInput.focus();
+        }
+
+        function handleInputOnKeyDown2(e) {
+            if(e.keyCode !== 13)  { //enter의 키코드 값은 13 ()
+                return;
+            }
+            const submitButton = document.querySelector(".submit-button");
+            submitButton.click();
+        }
+
+        window.onload = () => {
+            const textInputElement = document.querySelector(".text-input");
+            const textInputElement2 = document.querySelector(".text-input2");
+            const submitButtonElement = document.querySelector(".submit-button");
+
+            textInputElement.onkeyup = handleInputOnChange;
+            textInputElement2.onkeyup = handleInputOnChange2;
+
+            textInputElement.onkeydown = handleInputOnKeyDown;
+            textInputElement2.onkeydown = handleInputOnKeyDown2
+            submitButtonElement.onclick = handleSubmitOnClick;
+        }
+    </script>
+</body>
+</html>

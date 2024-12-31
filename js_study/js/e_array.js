@@ -40,7 +40,7 @@ console.log(newNumbers); //[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 const newNumbers2 = [...numbers, 11, 12, 13, 14, 15]; 
 console.log(newNumbers2); //[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15 ]
 
-const newNumbers3 = numbers.slice(0, 5);
+const newNumbers3 = numbers.slice(0, 5); //0번 인덱스 이상 5번 인덱스 미만
 console.log(newNumbers3); //[ 1, 2, 3, 4, 5 ]
 const newNumbers31 = numbers.slice(5);
 console.log(newNumbers31); //[ 6, 7, 8, 9 ]

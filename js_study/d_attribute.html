@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            margin: 200px auto;
+            border: 1px solid #222222;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            cursor: pointer;
+
+            & > img {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="img-box">
+        <img src="" alt="">
+    </div>
+    <script>
+        let currentIndex = 0;
+        
+        const urlList = [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7OrtM7FfDgFfgOmRqL4R__bU5cjx1ltwy1A&s",
+            "https://velog.velcdn.com/images/ymh0951/post/ec877c43-d72f-45b3-8c37-46be92d92fa5/image.png",
+            "https://i.namu.wiki/i/u-PiS0v1KZhEkoXC07ExcSSlHpYf_gwDdOfbYA-L-8Xgsdp8YyVl1j3SdOxWPQUaDqniZa9dwD40EBKStdd_aA.svg",
+            "https://cdn.iconscout.com/icon/free/png-256/free-node-js-3628954-3030179.png?f=webp"
+        ]
+        
+        function handleImgChangeOnClick() {
+            if(currentIndex < urlList.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            //window.onload는 페이지가 열렸을떄 딱 1번뿐이고,
+            //서로 범주가 다르므로 객체가 공유되어있지 않으므로 다시 선언해준다.
+            const imgElement = document.querySelector(".img-box > img"); 
+            imgElement.src = urlList[currentIndex];
+        }
+
+        window.onload = () => {
+            //요소 불러와서 값을 세팅
+            const imgElement = document.querySelector(".img-box > img");
+            imgElement.setAttribute("src", urlList[currentIndex]);
+            //imgElement.src = urlList[currentIndex]; 같음
+            //onclick 클릭 시 
+            const imgBoxElement = document.querySelector(".img-box");
+            imgBoxElement.onclick = handleImgChangeOnClick;
+        }
+    </script>
+</body>
+</html>

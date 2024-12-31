@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slide {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            margin: 100px auto;
+            border: 1px solid #dbdbdb;
+            width: 1200px;
+            height: 400px;
+            overflow: hidden;
+
+            & > img {
+                height: 100%;
+            }
+
+            & > .prev-button, .next-button {
+                position: absolute;
+                transform: translateY(-50%);
+                top: 50%;
+                border: none;
+                padding: 10px;
+                background-color: transparent;
+                cursor: pointer;
+                
+                & > svg {
+                    height: 100px;
+                }
+            }
+
+            & > .prev-button {
+                left: 50px;
+            }
+
+            & > .next-button {
+                right: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="fixed">
+        <label for="fixed">고정</label>
+    </div>
+
+    <div class="slide">
+        <button class="prev-button">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"></path></svg>
+        </button>
+
+        <img src="" alt="">
+
+        <button class="next-button">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"></path></svg>
+        </button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        const urlList = [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7OrtM7FfDgFfgOmRqL4R__bU5cjx1ltwy1A&s",
+            "https://velog.velcdn.com/images/ymh0951/post/ec877c43-d72f-45b3-8c37-46be92d92fa5/image.png",
+            "https://i.namu.wiki/i/u-PiS0v1KZhEkoXC07ExcSSlHpYf_gwDdOfbYA-L-8Xgsdp8YyVl1j3SdOxWPQUaDqniZa9dwD40EBKStdd_aA.svg",
+            "https://cdn.iconscout.com/icon/free/png-256/free-node-js-3628954-3030179.png?f=webp"
+        ]
+
+        
+        function handlePrevOnClick() {
+            //console.log("이전");  - 코드 입력 전에 항상 체크하기
+
+            const checkInput = document.querySelector("#fixed");
+            //초기화로 코드가 꼬일 수 있으므로 밖에 둬서 공용으로 쓰기보단 개별로 쓰도록 하는것을 권장
+
+
+            if(checkInput.checked) {
+                if(0 < currentIndex) {
+                    currentIndex--;
+                } 
+            } else {
+                if(0 < currentIndex) {
+                    currentIndex--;
+                } else {
+                    currentIndex = urlList.length - 1;
+                }
+            }
+            setSlideImgSrc(urlList[currentIndex]);
+
+            /*
+            //강사님 코드 - 리턴을 통해 이미지 불러오기도 스킵된다.
+            if(0 < currentIndex) {
+                currentIndex--;
+            } else {
+                if(checkInput.checked) {
+                    return;
+                } else {
+                    currentIndex = urlList.length - 1;
+                }
+            }
+            setSlideImgSrc(urlList[currentIndex]);
+            */
+        }
+        
+
+        function handleNextOnClick() {
+            //console.log("다음");  - 코드 입력 전에 항상 체크하기
+            
+            const checkInput = document.querySelector("#fixed");
+
+            if(checkInput.checked) {
+                if(currentIndex < urlList.length -1 ) {
+                    currentIndex++;
+                }
+            } else {
+                if(currentIndex < urlList.length -1 ) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+            }
+            setSlideImgSrc(urlList[currentIndex]);
+        }
+
+        
+        function setSlideImgSrc(src) {
+            const slideElement = document.querySelector(".slide > img");
+            slideElement.src = src; 
+            //setSlideImgSrc()  /  slideElement.src = urlList[currentIndex];  /  setSlideImgSrc();
+            //setSlideImgSrc(src)  /  slideElement.src = src;  /  setSlideImgSrc(urlList[currentIndex]);
+            //아래쪽이 모든 링크에 대해 대응이 가능하므로 재사용성이 높다.
+        }
+
+        window.onload = () => {
+            const prevButtonElement = document.querySelector(".prev-button");
+            prevButtonElement.onclick = handlePrevOnClick;
+            const nextButtonElement = document.querySelector(".next-button");
+            nextButtonElement.onclick = handleNextOnClick;
+
+            setSlideImgSrc(urlList[currentIndex]); //함수는 가능한 마지막에 배치
+        }
+    </script>
+    
+</body>
+</html>

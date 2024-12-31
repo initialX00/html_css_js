@@ -24,6 +24,7 @@ const userComponents = users.map(user =>
     <label>비밀번호</label>
     <div>${user.password}</div>
     `
+    //html에 넣기위해 태그 작성
 ).join("");
 
 console.log(userComponents);

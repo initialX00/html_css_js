@@ -12,7 +12,7 @@ fx1();
 
 
 
-function fx2(num1, num2) {
+function fx2(num1, num2) { //마찬가지로 자료형이 없기때문에 매개변수에도 변수명만 적는다.
     console.log(num1 + num2);
 }
 
@@ -67,7 +67,8 @@ console.log(fx3()); //함수 끌어다 쓰기
 
 console.log("========")
 
-//함수 안에 함수 정의가 가능하다
+//함수 안에 함수 정의가 가능하다.
+//함수 안의 함수는 화살표함수로=> 람다형식처럼 적을 수 있다
 function fx4() {
     console.log("fx4 호출");
 
@@ -100,7 +101,7 @@ function fx13() {
 }
 
 
-const fxArray = [fx11, fx12, fx13];
+const fxArray = [fx11, fx12, fx13]; //객체로 취급되기에 배열 안에 넣을 수 있다. 함수의 정의도 넣을 수 있다.
 console.log(fxArray);
 
 for(let fx of fxArray) {
