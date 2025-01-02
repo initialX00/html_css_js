@@ -1,0 +1,31 @@
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.back-button {
+    width: 50px;
+
+    & > svg {
+        width: 30px;
+        height: 30px;
+        fill: #eec18e;
+    }
+}
+
+.main-header-title {
+    margin: 0;
+    color: #eeeeee;
+    cursor: default;
+}
+
+.write-submit-button {
+    width: 50px;
+    font-size: 18px;
+    color: #eec18e;
+    letter-spacing: 2px;
+}
