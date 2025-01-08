@@ -7,36 +7,37 @@
 }
 
 .ipad {
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 3px solid rgb(90, 90, 90);
+    padding: 45px 25px 25px 25px;
+    width: 800px;
+    height: 600px;
+    background-color: black;
+}
+
+.screen {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 30px solid black;
-    border-top: 40px solid black;
-    border-bottom: 40px solid black;
-    padding: 10px;
-    width: 800px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
+    background-color: #222222;
 }
+
+
 
 .camera {
     position: absolute;
-    top: -25px;
+    top: -30px;
     border-radius: 100%;
     width: 15px;
     height: 15px;
     background-color: rgba(182, 182, 182, 0.637);
 }
 
-.info {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
 
-    & > .back-button > svg {
-        width: 30px;
-        height: fit-content;
-    }
-}
+
+
+

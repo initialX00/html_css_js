@@ -1,0 +1,80 @@
+
+.main-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3px;
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding: 10px 0px 0px 0px;
+    width: 100%;
+
+    & > .left-head {
+        display: flex;
+        cursor: default;
+        margin-left: 8px;
+
+        & > .note-icon > svg {
+            margin-right: 8px;
+            width: 40px;
+            height: fit-content;
+            color: #ffffff;
+        }
+
+        & > .thema {
+            margin-top: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+    }
+
+    & > .note > svg {
+        margin-right: 8px;
+        padding-bottom: 4px;
+        width: 40px;
+        height: fit-content;
+        color: #ffffff;
+    }
+}
+
+.board-list {
+    box-sizing: border-box;
+    padding: 8px 30px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 120px;
+    background-color: #ffffff;
+    transition: all 0.5s ease;
+
+    &:hover {
+        box-shadow: 0 0 5px 5px #eeeeee55;
+    }
+}

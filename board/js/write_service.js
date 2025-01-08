@@ -14,6 +14,18 @@ function setInputsEvent() {
     writerInput.onkeyup = handleBoardInputOnChange;
 }
 
+function handleBoardInputOnChange(e) {
+    boardInputDatas = {
+        ...boardInputDatas,
+        [e.target.name]: e.target.value, //입력된 키 밸류 값 입력
+    }
+    //console.log(`${e.target.name}, ${e.target.value}`);
+    //console.log(boardInputDatas);
+}
+
+
+
+
 function setButtonEvent() {
     const submitButton = document.querySelector(".write-submit-button");
     submitButton.onclick = handleSubmitOnClick; //저장 클릭 시 작동
@@ -24,15 +36,6 @@ function handleSubmitOnClick() {
     saveBoard();
     clear(); //화면에 입력된 값 제거
 } 
-
-function handleBoardInputOnChange(e) {
-    boardInputDatas = {
-        ...boardInputDatas,
-        [e.target.name]: e.target.value, //입력된 키 밸류 값 입력
-    }
-    //console.log(`${e.target.name}, ${e.target.value}`);
-    //console.log(boardInputDatas);
-}
 
 function clear() {
     const titleInput = document.querySelector(".main-article > input:nth-of-type(1)");
@@ -48,11 +51,8 @@ function clear() {
     };
 } 
 
-
-
-
 function saveBoard() {
-    let boardDatas = !!localStorage.getItem("boardDatas") 
+    let boardDatas = !!localStorage.getItem("boardDatas")  //getItem : value값 불러오기
         ? JSON.parse(localStorage.getItem("boardDatas"))
         : []; //글 저장
         //JSON으로 키밸류를 문자열로 저장
@@ -71,9 +71,8 @@ function saveBoard() {
 
     alert("게시글 작성 완료");
 
-    location.href = "./list.html";
+    location.href = "./list.html"; //location은 객체의 URL에 관한 정보를 담는다.
 }
-
 
 
 setInputsEvent();

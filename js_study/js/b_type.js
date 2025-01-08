@@ -31,6 +31,11 @@ address = {
 console.log(address);
 console.log(typeof address);
 
+
+var age2 = NaN;
+console.log(age2);
+console.log(typeof age2);
+
 /**
  * number(숫자 - 정수,실수)
  * string(문자열)
